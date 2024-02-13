@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню еды</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+<div id="fixed-buttons-container">
+    <a href="#hot-appetizers"><button>Горячие закуски</button></a>
+    <a href="#hot-drinks"><button>Горячие напитки</button></a>
+    <a href="#cold-drinks"><button>Холодные напитки</button></a>
+    <a href="#desserts"><button>Десерт</button></a>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" id="searchInput" placeholder="Поиск еды..." oninput="searchFood(this.value)">
+<button onclick="clearSearch()">Х</button>
+<div id="menu-items"></div>
+
+</div>
+
+<div id="menu-header">
+        <h1>Меню ресторана</h1>
+    </div>
+
+
+<div id="cart-container">
+      <div id="cart-icon" onclick="toggleCart()">
+         🛒
+         <span id="cart-count">0</span>
+      </div>
+      <div id="cart-dropdown">
+         <h3>Корзина</h3>
+         <ul id="cart"></ul>
+         <button onclick="checkout()">Оформить заказ</button>
+         <button onclick="clearCart()">Очистить корзину</button>
+      </div>
+   </div>
+
+
+
+
+<div id="hot-appetizers">
+     <h1>Горячие закуски</h1>
+    <div class="grid-container">
+        <!-- Код для горячих закусок -->
+        <div class="menu-item">
+            <img src="img/pizza.jpg" alt="Pizza" class="food-image">
+            <p>Пицца</p>
+            <button onclick="addItem('Пицца', 10)">Добавить Пиццу (10$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/burger.jpg" alt="Burger" class="food-image">
+            <p>Бургер</p>
+            <button onclick="addItem('Бургер', 9)">Добавить Бургер (9$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/shaurma.jpg" alt="Shaurma" class="food-image">
+            <p>Шаурма</p>
+            <button onclick="addItem('Шаурма', 8)">Добавить Шаурму (8$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/doner.jpg" alt="Doner" class="food-image">
+            <p>Донер</p>
+            <button onclick="addItem('Донер', 7)">Добавить Донер (7$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/shash.jpg" alt="Shash" class="food-image">
+            <p>Шашлык</p>
+            <button onclick="addItem('Шашлык', 7)">Добавить Шашлык (7$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/salat.jpg" alt="Salat" class="food-image">
+            <p>Салат</p>
+            <button onclick="addItem('Салат', 6)">Добавить Салат (6$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/steik.jpg" alt="Steik" class="food-image">
+            <p>Стейк</p>
+            <button onclick="addItem('Стейк', 7)">Добавить Стейк (7$)</button>
+        </div>
+
+
+        <div class="menu-item">
+            <img src="img/jark.jpg" alt="Jark" class="food-image">
+            <p>Жареная курица</p>
+            <button onclick="addItem('Жареная курица', 20)">Добавить Жареную курицу (20$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/jarb.jpg" alt="Jarb" class="food-image">
+            <p>Жареная рыба</p>
+            <button onclick="addItem('Жареная рыба', 5)">Добавить Жареную рыбу (5$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/sup.jpg" alt="Sup" class="food-image">
+            <p>Суп</p>
+            <button onclick="addItem('Суп', 11)">Добавить Суп (11$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/fri.jpg" alt="Fri" class="food-image">
+            <p>Картофель фри</p>
+            <button onclick="addItem('Картофель фри', 3)">Добавить Картофель фри (3$)</button>
+        </div>
+
+
+        <div class="menu-item">
+            <img src="img/sirn.jpg" alt="Sir" class="food-image">
+            <p>Сырные палочки</p>
+            <button onclick="addItem('Сырные палочки', 4)">Добавить Сырные палочки (4$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/min-pizza.jpg" alt="Sir" class="food-image">
+            <p>Мини-пицца</p>
+            <button onclick="addItem('Мини-пицца', 6)">Добавить Мини-пицца (6$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/ovoshra.jpeg" alt="Sir" class="food-image">
+            <p>Овощное рагу</p>
+            <button onclick="addItem('Овощное рагу', 8)">Добавить Овощное рагу (8$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/hankeb.jpg" alt="Sir" class="food-image">
+            <p>Хан-Кебаб</p>
+            <button onclick="addItem('Хан-Кебаб', 9)">Добавить Хан-Кебаб (9$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/hach.jpg" alt="Sir" class="food-image">
+            <p>Хачапури</p>
+            <button onclick="addItem('Хачапури', 7)">Добавить Хачапури (7$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/jul.jpg" alt="Sir" class="food-image">
+            <p>Жульен</p>
+            <button onclick="addItem('Жульен', 5)">Добавить Жульен (5$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/patkab.jpg" alt="Sir" class="food-image">
+            <p>Паста Карбонара</p>
+            <button onclick="addItem('Паста Карбонара', 4)">Добавить Паста Карбонара (4$)</button>
+        </div>
+    </div>
+</div>
+
+    
+<div id="hot-drinks">
+    <h1>Горячие напитки</h1>
+    <div class="grid-container">
+        <!-- Код для горячих напитков -->
+
+         <div class="menu-item">
+            <img src="img/zel.jpg" alt="Fri" class="food-image">
+            <p>Зеленый чай</p>
+            <button onclick="addItem('Зеленый чай', 3)">Добавить Зеленый чай (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/limon.jpg" alt="Fri" class="food-image">
+            <p>Чай с лимоном</p>
+            <button onclick="addItem('Чай с лимоном', 3)">Добавить Чай с лимоном (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/kap.jpg" alt="Fri" class="food-image">
+            <p>Капучино</p>
+            <button onclick="addItem('Капучино', 3)">Добавить Капучино (3$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/latt.jpg" alt="Fri" class="food-image">
+            <p>Кофе Латте</p>
+            <button onclick="addItem('Кофе Латте', 3)">Добавить Кофе Латте (3$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/kofmol.jpg" alt="Fri" class="food-image">
+            <p>Кофе с молоком</p>
+            <button onclick="addItem('Кофе с молоком', 3)">Добавить Кофе с молоком (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/kofam.jpg" alt="Fri" class="food-image">
+            <p>Кофе Американо</p>
+            <button onclick="addItem('Кофе Американо', 3)">Добавить Кофе Американо (3$)</button>
+        </div>
+
+
+        <div class="menu-item">
+            <img src="img/kofes.jpg" alt="Fri" class="food-image">
+            <p>Кофе Эспрессо</p>
+            <button onclick="addItem('Кофе Эспрессо', 3)">Добавить Кофе Эспрессо (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/cham.jpg" alt="Fri" class="food-image">
+            <p>Чай мята</p>
+            <button onclick="addItem('Чай Мята', 3)">Добавить Чай Мята (3$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/cherch.jpg" alt="Fri" class="food-image">
+            <p>Черный чай</p>
+            <button onclick="addItem('Черный чай', 3)">Добавить Черный чай (3$)</button>
+        </div>
+    </div>
+</div>
+
+<div id="cold-drinks">
+    <h1>Холодные напитки</h1>
+    <div class="grid-container">
+        <!-- Код для холодных напитков -->
+
+         <div class="menu-item">
+            <img src="img/cok.jpg" alt="Fri" class="food-image">
+            <p>Сок</p>
+            <button onclick="addItem('Сок', 3)">Добавить Сок (3$)</button>
+        </div>
+
+          <div class="menu-item">
+            <img src="img/tar.jpg" alt="Fri" class="food-image">
+            <p>Тархун</p>
+            <button onclick="addItem('Тархун', 3)">Добавить Тархун (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/kef.jpg" alt="Fri" class="food-image">
+            <p>Кефир</p>
+            <button onclick="addItem('Кефир', 3)">Добавить Кефир (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/kola.jpg" alt="Fri" class="food-image">
+            <p>Кока-Кола</p>
+            <button onclick="addItem('Кока-Кола', 3)">Добавить Кока-Кола (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/pepsi.jpg" alt="Fri" class="food-image">
+            <p>Пепси</p>
+            <button onclick="addItem('Пепси', 3)">Добавить Пепси (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/fanta.jpg" alt="Fri" class="food-image">
+            <p>Фанта</p>
+            <button onclick="addItem('Фанта', 3)">Добавить Фанта (3$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/sprite.jpg" alt="Fri" class="food-image">
+            <p>Спрайт</p>
+            <button onclick="addItem('Спрайт', 3)">Добавить Спрайт (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/7up.jpg" alt="Fri" class="food-image">
+            <p>7Up</p>
+            <button onclick="addItem('Спрайт', 3)">Добавить 7Up (3$)</button>
+        </div>
+
+
+        <div class="menu-item">
+            <img src="img/mors.jpg" alt="Fri" class="food-image">
+            <p>Морс</p>
+            <button onclick="addItem('Спрайт', 3)">Добавить Морс (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/moh.jpg" alt="Fri" class="food-image">
+            <p>Мохито</p>
+            <button onclick="addItem('Мохито', 3)">Добавить Мохито (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/pivo.jpg" alt="Fri" class="food-image">
+            <p>Пиво</p>
+            <button onclick="addItem('Пиво', 3)">Добавить Пиво (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/molk.jpg" alt="Fri" class="food-image">
+            <p>Молочный коктель</p>
+            <button onclick="addItem('Молочный коктель', 3)">Добавить Молочный коктель (3$)</button>
+        </div>
+    </div>
+</div>
+
+<div id="desserts">
+    <h1>Десерт</h1>
+    <div class="grid-container">
+        <!-- Код для десертов -->
+
+        <div class="menu-item">
+            <img src="img/chiz.jpg" alt="Fri" class="food-image">
+            <p>Чизкейк</p>
+            <button onclick="addItem('Чизкейк', 3)">Добавить Чизкейк (3$)</button>
+        </div>
+
+
+        <div class="menu-item">
+            <img src="img/tira.jpg" alt="Fri" class="food-image">
+            <p>Тирамису</p>
+            <button onclick="addItem('Тирамису', 3)">Добавить Тирамису (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/fas.jpg" alt="Fri" class="food-image">
+            <p>Фруктовое ассорти</p>
+            <button onclick="addItem('Фруктовое ассорти', 3)">Добавить Фруктовое ассорти (3$)</button>
+        </div>
+
+         <div class="menu-item">
+            <img src="img/nap.jpg" alt="Fri" class="food-image">
+            <p>Наполеон</p>
+            <button onclick="addItem('Наполеон', 3)">Добавить Наполеон (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/ponch.jpg" alt="Fri" class="food-image">
+            <p>Пончик</p>
+            <button onclick="addItem('Пончик', 3)">Добавить Пончик (3$)</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/pirog.jpeg" alt="Fri" class="food-image">
+            <p>Пирог</p>
+            <button onclick="addItem('Пирог', 3)">Добавить Пирог (3$)</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
